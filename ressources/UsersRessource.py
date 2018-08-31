@@ -21,7 +21,7 @@ user_fileds = {
 }
 
 
-class UserListRessource(Resource):
+class UsersRessource(Resource):
     @parse_params(
         reqparse.Argument('page', type=int, required=False, location='args', default=1),
         reqparse.Argument('size', type=int, required=False, location='args', default=10),
