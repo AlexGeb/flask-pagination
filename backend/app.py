@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 from flask_restful import Api
 import os
 
@@ -6,6 +7,7 @@ from db import db
 from ressources.UsersRessource import UsersRessource
 from utils import setup_db
 app = Flask(__name__)
+CORS(app)
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False

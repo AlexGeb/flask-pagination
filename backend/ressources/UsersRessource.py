@@ -15,7 +15,7 @@ def paginated(queried_object_fields):
     }
 
 
-user_fileds = {
+user_fields = {
     'username': fields.String,
     'email': fields.String
 }
@@ -26,6 +26,6 @@ class UsersRessource(Resource):
         reqparse.Argument('page', type=int, required=False, location='args', default=1),
         reqparse.Argument('size', type=int, required=False, location='args', default=10),
     )
-    @marshal_with(paginated(user_fileds))
+    @marshal_with(paginated(user_fields))
     def get(self, page, size):
         return User.query.paginate(page, size, False)
